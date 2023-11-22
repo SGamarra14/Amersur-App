@@ -5,4 +5,23 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="nombre_propiedad"> - </string>
+    <string name="area_propiedad"> - </string>
+    <string name="estado_propiedad"> - </string>
+    <string name="tipo_propiedad"> - </string>
+    <string name="ubicacion_propiedad"> - </string>
+    <string name="descripcion_propiedad"> - </string>
+
+    <string-array name="ubicaciones">
+        <item>Seleccionar</item>
+        <item>Huaral</item>
+        <item>Chancay</item>
+    </string-array>
+
+    <string-array name="tipo">
+        <item>Seleccionar</item>
+        <item>Casa</item>
+        <item>Terreno</item>
+    </string-array>
 </resources>
