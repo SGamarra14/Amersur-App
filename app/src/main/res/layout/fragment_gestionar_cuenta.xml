@@ -1,16 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.GestionarCuenta">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- Imagen en la parte superior -->
+    <ImageView
+        android:id="@+id/imagenCuenta"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="PANTALLA PARA GESTIONAR CUENTA" />
+        android:layout_height="200dp"
+        android:src="@drawable/account_img"
+        android:scaleType="centerCrop"
+        android:background="#80000000"
+        android:alpha="1.0" />
 
-</FrameLayout>
+    <!-- Texto "MI CUENTA" encima de la imagen -->
+    <TextView
+        android:id="@+id/miCuentaText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MI CUENTA"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
+
+    <!-- Texto de descripción encima de la imagen -->
+    <TextView
+        android:id="@+id/descripcionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Puedes modificar los datos de tu cuenta Amersur. Recuerda que estos datos serán utilizados para comunicarse contigo en caso solicites más información acerca de una propiedad."
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/miCuentaText"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"/> <!-- Ajusta el margen según tus necesidades -->
+
+    <!-- Ajusta los IDs, hint, etc., según tus necesidades -->
+    <TextView
+        android:id="@+id/nombresText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombres"
+        android:layout_below="@id/imagenCuenta"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/txtname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gabriel Manuel"
+        android:layout_below="@id/nombresText"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/apellidosText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apelldios"
+        android:layout_below="@id/txtname"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/txtlastname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Campos Diaz"
+        android:layout_below="@id/apellidosText"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/telefonoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Numero de Telefono"
+        android:layout_below="@id/txtlastname"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:id="@+id/txtphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="999999999"
+        android:layout_below="@id/telefonoText"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/correoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Numero de Telefono"
+        android:layout_below="@id/txtphone"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/txtemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gabriel_M_Campos@gmail.com"
+        android:layout_below="@id/correoText"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"/>
+
+    <!-- Repite el TextView para apellidos, teléfono, correo, etc. -->
+
+    <!-- Botones en la parte inferior -->
+    <Button
+        android:id="@+id/btnModificar"
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
+        android:text="MODIFICAR DATOS"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#A9B72C"
+        android:textColor="@color/white"
+        android:layout_marginBottom="136dp"/>
+
+    <!-- Repite el Button para otros botones si es necesario -->
+    <Button
+        android:id="@+id/btnChgPwd"
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
+        android:text="CAMBIAR CONTRASEÑA"
+        android:background="#14252B"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="76dp"/>
+</RelativeLayout>
