@@ -24,6 +24,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class IniciarSesion extends AppCompatActivity {
 
     Button CrearCuenta, IniciaSesion;
@@ -66,14 +69,17 @@ public class IniciarSesion extends AppCompatActivity {
                 if (correo.equals("") || pass.equals("")) {
                     Toast.makeText(IniciarSesion.this, "Por favor, llene todos los campos.", Toast.LENGTH_SHORT).show();
                 } else {
-                    } if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
-                        Correo.setError("Dirección de correo inválida.");
-                        Correo.setFocusable(true);
-                    } else if (pass.length() < 6) {
-                        Password.setError("La contraseña tener 6 o más carácteres.");
-                        Correo.setFocusable(true);
-                    } else {
-                        IniciarSesionUsuario(correo, pass);
+                        if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
+                            Correo.setError("Dirección de correo inválida.");
+                            Correo.setFocusable(true);
+                        } else if (pass.length() < 6) {
+                            Password.setError("La contraseña debe tener 6 o más caracteres.");
+                            Correo.setFocusable(true);
+                        } else {
+                            // Hashea el password ingresado antes de iniciar sesión
+                            String passwordIngresadoHash = hashPassword(pass);
+                            IniciarSesionUsuario(correo, passwordIngresadoHash);
+                        }
                     }
                 }
         });
@@ -143,4 +149,22 @@ public class IniciarSesion extends AppCompatActivity {
         onBackPressed();
         return super.onSupportNavigateUp();
     }*/
+
+    private String hashPassword(String password) {
+        try {
+            // Utilizar SHA-256 para el hash (puedes elegir otro algoritmo si lo prefieres)
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = digest.digest(password.getBytes());
+
+            // Convertir el array de bytes a una representación hexadecimal
+            StringBuilder stringBuilder = new StringBuilder();
+            for (byte b : hashBytes) {
+                stringBuilder.append(String.format("%02x", b));
+            }
+            return stringBuilder.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return ""; // Manejar la excepción de manera apropiada en tu aplicación
+        }
+    }
 }

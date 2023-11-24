@@ -26,6 +26,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 
 public class RegistrarUsuario extends Fragment {
@@ -93,7 +95,8 @@ public class RegistrarUsuario extends Fragment {
 
     private void RegistrarNuevoUsuario(String correo, String pass) {
         progressDialog.show();
-        auth.createUserWithEmailAndPassword(correo, pass)
+        String passwordEncriptado = hashPassword(pass);
+        auth.createUserWithEmailAndPassword(correo, passwordEncriptado)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -104,7 +107,6 @@ public class RegistrarUsuario extends Fragment {
 
                             String UID = user.getUid();
                             String correo = Correo.getText().toString();
-                            String pass = Password.getText().toString();
                             String nombre = Nombres.getText().toString();
                             String apellido = Apellidos.getText().toString();
                             String telefono = Celular.getText().toString();
@@ -113,7 +115,7 @@ public class RegistrarUsuario extends Fragment {
 
                             Usuario.put("UID", UID);
                             Usuario.put("CORREO", correo);
-                            Usuario.put("PASSWORD", pass);
+                            Usuario.put("PASSWORD", passwordEncriptado);
                             Usuario.put("NOMBRES", nombre);
                             Usuario.put("APELLIDOS", apellido);
                             Usuario.put("TELEFONO", telefono);
@@ -137,5 +139,23 @@ public class RegistrarUsuario extends Fragment {
                         Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
+    }
+
+    private String hashPassword(String password) {
+        try {
+            // Utilizar SHA-256 para el hash (puedes elegir otro algoritmo si lo prefieres)
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = digest.digest(password.getBytes());
+
+            // Convertir el array de bytes a una representación hexadecimal
+            StringBuilder stringBuilder = new StringBuilder();
+            for (byte b : hashBytes) {
+                stringBuilder.append(String.format("%02x", b));
+            }
+            return stringBuilder.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return ""; // Manejar la excepción de manera apropiada en tu aplicación
+        }
     }
 }
