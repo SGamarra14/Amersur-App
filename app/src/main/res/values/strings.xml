@@ -8,10 +8,6 @@
 
     <string name="nombre_propiedad"> - </string>
     <string name="area_propiedad"> - </string>
-    <string name="estado_propiedad"> - </string>
-    <string name="tipo_propiedad"> - </string>
-    <string name="ubicacion_propiedad"> - </string>
-    <string name="descripcion_propiedad"> - </string>
 
     <string-array name="ubicaciones">
         <item>Seleccionar</item>
@@ -24,4 +20,13 @@
         <item>Casa</item>
         <item>Terreno</item>
     </string-array>
+
+    <string name="det_nombre_propiedad"> - </string>
+    <string name="det_area_propiedad"> - </string>
+    <string name="det_estado_propiedad"> - </string>
+    <string name="det_tipo_propiedad"> - </string>
+    <string name="det_ubicacion_propiedad"> - </string>
+    <string name="det_descripcion_propiedad"> - </string>
+    <string name="det_precio_propiedad"> - </string>
+
 </resources>

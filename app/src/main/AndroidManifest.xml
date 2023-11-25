@@ -23,6 +23,9 @@
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".propiedades.DetallePropiedad"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />

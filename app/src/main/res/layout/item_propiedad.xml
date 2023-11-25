@@ -8,6 +8,7 @@
     app:cardBackgroundColor="#fff"
     app:cardUseCompatPadding="true"
     android:padding="0.2dp"
+    android:layout_margin="10dp"
     android:layout_width="170dp"
     android:layout_height="220dp">
 
@@ -35,7 +36,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_weight="2.3"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:background="#F1F1F1">
 
             <TextView
@@ -44,10 +45,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
-                android:textColor="#000"
-                android:gravity="start"
-                android:layout_gravity="start"
-                android:paddingHorizontal="6dp"/>
+                android:textColor="#14252B"
+                android:paddingHorizontal="6dp"
+                android:fontFamily="@font/inter_medium"/>
 
             <TextView
                 android:id="@+id/area_propiedad"
@@ -57,35 +57,9 @@
                 android:textSize="10sp"
                 android:textColor="#6A6A6A"
                 android:paddingHorizontal="12dp"
-                android:layout_gravity="start"/>
+                android:fontFamily="@font/inter_regular"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
-<!--
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ImagenPropiedad"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:scaleType="center"/>
-
-        <TextView
-            android:id="@+id/nombre_propiedad"
-            android:text="@string/nombre_propiedad"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:textSize="18sp"
-            android:textColor="#000"
-            android:background="#F1F1F1"
-            android:gravity="center"/>
-
-        <TextView
-            android:id="@+id/area_propiedad"
-            android:text="@string/area_propiedad"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:textSize="18sp"
-            android:textColor="#000"
-            android:background="#F1F1F1"
-            android:gravity="center"/>-->
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

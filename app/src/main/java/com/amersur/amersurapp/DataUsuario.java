@@ -26,6 +26,8 @@ public class DataUsuario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_usuario);
 
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         nameEt = findViewById(R.id.editTextNombres);
         lastNameEt = findViewById(R.id.editTextApellidos);
         emailEt = findViewById(R.id.editTextEmail);
