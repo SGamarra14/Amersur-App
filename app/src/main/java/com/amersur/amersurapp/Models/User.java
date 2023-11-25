@@ -22,8 +22,6 @@ public class User implements Serializable {
         this.NOMBRES = NOMBRES;
     }
 
-    // Métodos getter y setter para acceder a los atributos
-
     public String getUID() {
         return UID;
     }
