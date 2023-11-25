@@ -14,6 +14,8 @@ public class Propiedades {
     int VISUALIZACIONES;
     String NOMBRE;
 
+    int ID;
+
     public Propiedades() {
     }
 
@@ -30,6 +32,14 @@ public class Propiedades {
         this.visualizaciones = visualizaciones;
         this.nombre = nombre;
     }*/
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     public String getNOMBRE() {
         return NOMBRE;

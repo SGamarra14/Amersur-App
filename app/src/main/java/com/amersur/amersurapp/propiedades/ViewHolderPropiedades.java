@@ -56,6 +56,7 @@ public class ViewHolderPropiedades extends RecyclerView.ViewHolder {
 
         nombre_propiedad.setText(nombre);
         area_propiedad.setText("Área: " + area + " m²");
+        //mView.setTag(id);
 
         try {
             Picasso.get().load(foto1).placeholder(R.drawable.imageplaceholder).into(imagenPropiedad);
@@ -64,4 +65,8 @@ public class ViewHolderPropiedades extends RecyclerView.ViewHolder {
             //Toast.makeText(context, "Error: " +  e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
+
+    /*public String getTag() {
+        return (String) mView.getTag();
+    }*/
 }
