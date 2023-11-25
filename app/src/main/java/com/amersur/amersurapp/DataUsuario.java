@@ -33,7 +33,6 @@ public class DataUsuario extends AppCompatActivity {
 
         user = (User) getIntent().getSerializableExtra("USUARIO_EXTRA");
 
-        // Ahora puedes usar el objeto Usuario en esta actividad
         if (user != null) {
             nameEt.setText(user.getNOMBRES());
             lastNameEt.setText(user.getAPELLIDOS());
@@ -41,6 +40,7 @@ public class DataUsuario extends AppCompatActivity {
             phoneEt.setText(user.getTELEFONO());
             uuid = user.getUID();
         }
+
         btnGuardar = findViewById(R.id.btnSave);
 
         btnGuardar.setOnClickListener(new View.OnClickListener() {

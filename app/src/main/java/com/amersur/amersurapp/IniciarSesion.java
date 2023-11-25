@@ -84,18 +84,15 @@ public class IniciarSesion extends AppCompatActivity {
                 }
         });
 
-        //Accion para mostrar fragment de crear cuenta
         CrearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Reemplaza el contenido actual con el fragment RegistrarUsuario
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
                 RegistrarUsuario fragmentRegistrarUsuario = new RegistrarUsuario();
                 fragmentTransaction.replace(R.id.fragment_container_IniciarSesion, fragmentRegistrarUsuario);
 
-                // Puedes agregar la transacción a la pila para que el usuario pueda retroceder
                 fragmentTransaction.addToBackStack(null);
 
                 fragmentTransaction.commit();

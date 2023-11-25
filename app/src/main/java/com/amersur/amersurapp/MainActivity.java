@@ -84,7 +84,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void ComprobandoInicioSesion() {
         if (user!=null) {
+            
             //Toast.makeText(this, "Se ha iniciado sesión", Toast.LENGTH_SHORT).show();
+            
         } else {
             //si no ha iniciado sesion entonces se abre el main cliente, en este caso deberia abrir activity iniciar sesion con fragmente registrar usuario
             startActivity(new Intent(MainActivity.this, IniciarSesion.class));
