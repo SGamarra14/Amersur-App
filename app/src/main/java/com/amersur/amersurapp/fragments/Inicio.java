@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.amersur.amersurapp.MainActivity;
 import com.amersur.amersurapp.R;
+import com.amersur.amersurapp.decorator.EspaciadoItemDecoration;
 import com.amersur.amersurapp.propiedades.DetallePropiedad;
 import com.amersur.amersurapp.propiedades.Propiedades;
 import com.amersur.amersurapp.propiedades.ViewHolderPropiedades;
@@ -28,13 +29,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
 public class Inicio extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    Spinner spinnerUbicacion, spinnerTipo;
+    Spinner spinnerUbicacion;
 
     RecyclerView recyclerviewPropiedades;
     FirebaseDatabase firebaseDatabase;
@@ -62,18 +64,14 @@ public class Inicio extends Fragment implements AdapterView.OnItemSelectedListen
 
         recyclerviewPropiedades = view.findViewById(R.id.recyclerViewPropiedades);
         recyclerviewPropiedades.setHasFixedSize(true);
+        int espacioEnPixeles = getResources().getDimensionPixelSize(R.dimen.espaciado_entre_items); // Define la dimensión en dimens.xml
+        recyclerviewPropiedades.addItemDecoration(new EspaciadoItemDecoration(requireContext(), espacioEnPixeles));
         recyclerviewPropiedades.setLayoutManager(linearLayoutManager);
 
         VerPropiedades();
 
         //para llenar el spinner
-        spinnerTipo = view.findViewById(R.id.spinner_tipo);
         spinnerUbicacion = view.findViewById(R.id.spinner_ubicacion);
-
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(requireContext(), R.array.tipo, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerTipo.setAdapter(adapter);
-        spinnerTipo.setOnItemSelectedListener(this);
 
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(requireContext(), R.array.ubicaciones, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -151,28 +149,6 @@ public class Inicio extends Fragment implements AdapterView.OnItemSelectedListen
                         });
 
                         startActivity(intent);
-
-                        /*obtenerPropiedadDesdeBD(d, new PropiedadCallback() {
-                            @Override
-                            public void onPropiedadObtenida(Propiedades propiedad) {
-                                if (propiedad != null) {
-                                    //Toast.makeText(getActivity(), "ID: " + id + " N: " + propiedad.getPRECIO(), Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getActivity(), DetallePropiedad.class);
-                                    intent.putExtra("Foto1", propiedad.getFOTO1());
-                                    intent.putExtra("Nombre", propiedad.getNOMBRE());
-                                    intent.putExtra("Descripcion", propiedad.getDESCRIPCION());
-                                    intent.putExtra("Ubicacion", propiedad.getUBICACION());
-                                    intent.putExtra("Estado", propiedad.getESTADO());
-                                    intent.putExtra("Area", a);
-                                    intent.putExtra("Precio", propiedad.getPRECIO());
-                                    intent.putExtra("Visualizaciones", propiedad.getVISUALIZACIONES());
-                                    startActivity(intent);
-                                } else {
-                                    Toast.makeText(getActivity(), "Propiedad no encontrada", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });*/
-                        //startActivity(new Intent(getActivity(), DetallePropiedad.class));
                     }
 
                 });
@@ -199,41 +175,34 @@ public class Inicio extends Fragment implements AdapterView.OnItemSelectedListen
         }
     }
 
-    /*private void obtenerPropiedadDesdeBD(int propiedadId, PropiedadCallback callback) {
-        DatabaseReference propiedadRef = firebaseDatabase.getReference("PROPIEDADES").child(String.valueOf(propiedadId));
-
-        propiedadRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    Propiedades propiedad = dataSnapshot.getValue(Propiedades.class);
-                    callback.onPropiedadObtenida(propiedad);
-                } else {
-                    callback.onPropiedadObtenida(null);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                callback.onPropiedadObtenida(null);
-            }
-        });
-    }*/
-
-
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+
+        // Verifica si la opción seleccionada es "Seleccionar"
+        if (text.equals("Seleccionar")) {
+            // Restablece la consulta sin ningún filtro
+            options = new FirebaseRecyclerOptions.Builder<Propiedades>().setQuery(reference, Propiedades.class).build();
+            firebaseRecyclerAdapter.updateOptions(options);
+            firebaseRecyclerAdapter.notifyDataSetChanged();
+            return;
+        }
+
+        // Si no es "Seleccionar", aplica el filtro según el Spinner
+        Query query;
+        if (parent.getId() == R.id.spinner_ubicacion) {
+            query = reference.orderByChild("UBICACION").equalTo(text);
+        } else {
+            return; // Spinner no reconocido, salir
+        }
+
+        options = new FirebaseRecyclerOptions.Builder<Propiedades>().setQuery(query, Propiedades.class).build();
+        firebaseRecyclerAdapter.updateOptions(options);
+        firebaseRecyclerAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
-    /*public interface PropiedadCallback {
-        void onPropiedadObtenida(Propiedades propiedad);
-    }*/
 }

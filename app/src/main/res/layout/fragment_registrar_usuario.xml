@@ -31,7 +31,7 @@
                 android:layout_margin="15dp"
                 android:layout_gravity="bottom">
 
-                d<TextView
+                <TextView
                     android:text="Crear Cuenta"
                     android:textSize="44sp"
                     android:gravity="center"

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.amersur.amersurapp.ChangePwd;
@@ -29,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 public class GestionarCuenta extends Fragment {
     private DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth;
-    private TextView nameTv,lastnameTv,emailTv,phoneTv;
+    private EditText nameTv,lastnameTv,emailTv,phoneTv;
     private String uuid,pwd;
     public GestionarCuenta() {
     }
