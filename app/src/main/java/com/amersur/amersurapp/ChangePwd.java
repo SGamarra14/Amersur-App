@@ -39,6 +39,8 @@ public class ChangePwd extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_pwd);
 
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         actualPwd = findViewById(R.id.editTextLastPwd);
         newPwd = findViewById(R.id.editTextPwd);
         reNewPwd = findViewById(R.id.editTextRepeatPwd);

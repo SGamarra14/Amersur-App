@@ -120,6 +120,7 @@ public class Inicio extends Fragment implements AdapterView.OnItemSelectedListen
                         double precio = getItem(position).getPRECIO();
                         final int visualizaciones = getItem(position).getVISUALIZACIONES();
 
+                        intent.putExtra("Id", id);
                         intent.putExtra("Foto1", foto1);
                         intent.putExtra("Nombre", nombre);
                         intent.putExtra("Descripcion", desc);

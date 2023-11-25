@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,103 +10,163 @@
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="15dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:text="Crear Cuenta"
-            android:textSize="35sp"
-            android:textColor="@color/colorPrimaryDark"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:text="Ingresa tus datos personales para acceder a todas las funcionalidades de Amersur App."
-            android:textSize="15sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"/>
+            android:layout_height="match_parent"
+            android:layout_weight="4">
 
-        <!--Nombre-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/Nombre_registro"
-                android:hint="Nombres"
-                android:inputType="textCapWords|textAutoComplete"
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="@drawable/crear_cuenta_img"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!--Apellido-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/Apellido_registro"
-                android:hint="Apellidos"
-                android:inputType="textCapWords|textAutoComplete"
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="15dp"
+                android:layout_gravity="bottom">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                d<TextView
+                    android:text="Crear Cuenta"
+                    android:textSize="44sp"
+                    android:gravity="center"
+                    android:textColor="#fff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inria_serif_bold"/>
+                <TextView
+                    android:text="Ingresa tus datos personales para acceder a todas las funcionalidades de Amersur App."
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:textColor="#fff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/inter_regular"/>
 
-        <!--Telefono-->
-        <com.google.android.material.textfield.TextInputLayout
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </FrameLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_weight="2">
 
-            <EditText
-                android:id="@+id/NumTelf_registro"
-                android:hint="Número de teléfono"
-                android:inputType="phone"
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="40dp"
+                android:orientation="vertical">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <!--Nombre-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <!--Correo-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/Nombre_registro"
+                        android:hint="Nombres"
+                        android:inputType="textCapWords|textAutoComplete"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:textSize="17sp"/>
 
-            <EditText
-                android:id="@+id/Correo_registro"
-                android:hint="Correo"
-                android:inputType="textEmailAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <!--Apellido-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <!--Contraseña-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true">
+                    <EditText
+                        android:id="@+id/Apellido_registro"
+                        android:hint="Apellidos"
+                        android:inputType="textCapWords|textAutoComplete"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:textSize="17sp"/>
 
-            <EditText
-                android:id="@+id/Password_registro"
-                android:inputType="textPassword"
-                android:hint="Contraseña"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <!--Telefono-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/Registrar_cuenta_btn"
-            android:text="Crear cuenta"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="#fff"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"/>
+                    <EditText
+                        android:id="@+id/NumTelf_registro"
+                        android:hint="Número de teléfono"
+                        android:inputType="phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:textSize="17sp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--Correo-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/Correo_registro"
+                        android:hint="Correo"
+                        android:inputType="textEmailAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:textSize="17sp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--Contraseña-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:passwordToggleEnabled="true">
+
+                    <EditText
+                        android:id="@+id/Password_registro"
+                        android:inputType="textPassword"
+                        android:hint="Contraseña"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_regular"
+                        android:textSize="17sp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/Registrar_cuenta_btn"
+                    android:text="Crear cuenta"
+                    android:background="#A9B72C"
+                    android:textColor="#fff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/inter_medium"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="20dp"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-</ScrollView>
+
+
+</FrameLayout>
