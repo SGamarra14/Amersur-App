@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.amersur.amersurapp.MainActivity;
 import com.amersur.amersurapp.R;
+import com.amersur.amersurapp.decorator.EspaciadoItemDecoration;
 import com.amersur.amersurapp.propiedades.DetallePropiedad;
 import com.amersur.amersurapp.propiedades.Propiedades;
 import com.amersur.amersurapp.propiedades.ViewHolderPropiedades;
@@ -63,6 +64,8 @@ public class Inicio extends Fragment implements AdapterView.OnItemSelectedListen
 
         recyclerviewPropiedades = view.findViewById(R.id.recyclerViewPropiedades);
         recyclerviewPropiedades.setHasFixedSize(true);
+        int espacioEnPixeles = getResources().getDimensionPixelSize(R.dimen.espaciado_entre_items); // Define la dimensión en dimens.xml
+        recyclerviewPropiedades.addItemDecoration(new EspaciadoItemDecoration(requireContext(), espacioEnPixeles));
         recyclerviewPropiedades.setLayoutManager(linearLayoutManager);
 
         VerPropiedades();

@@ -8,7 +8,7 @@
 
     <string name="nombre_propiedad"> - </string>
     <string name="area_propiedad"> - </string>
-
+    <dimen name="espaciado_entre_items">5dp</dimen>
     <string-array name="ubicaciones">
         <item>Seleccionar</item>
         <item>Huaral</item>

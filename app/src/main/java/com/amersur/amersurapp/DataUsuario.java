@@ -13,6 +13,9 @@ import com.amersur.amersurapp.Models.User;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DataUsuario extends AppCompatActivity {
     private EditText nameEt,lastNameEt,emailEt,phoneEt;
     private Button btnGuardar;
@@ -66,18 +69,18 @@ public class DataUsuario extends AppCompatActivity {
         String nuevoTelefono = phoneEt.getText().toString();
 
         // Actualizar los datos en el objeto Usuario
-        user.setNOMBRES(nuevoNombre);
-        user.setAPELLIDOS(nuevoApellido);
-        user.setCORREO(nuevoCorreo);
-        user.setTELEFONO(nuevoTelefono);
+        Map<String, Object> usuarioMap = new HashMap<>();
+        usuarioMap.put("NOMBRES", nuevoNombre);
+        usuarioMap.put("APELLIDOS", nuevoApellido);
+        usuarioMap.put("CORREO", nuevoCorreo);
+        usuarioMap.put("TELEFONO", nuevoTelefono);
 
-        // Aquí deberías guardar los cambios en Firebase, por ejemplo, mediante un DatabaseReference
+
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("USUARIOS").child(user.getUID()).setValue(user);
-        finish();
-        // Mostrar un mensaje de éxito o manejar el resultado según sea necesario
-        Toast.makeText(DataUsuario.this, "Cambios guardados con éxito", Toast.LENGTH_SHORT).show();
+        databaseReference.child("USUARIOS").child(user.getUID()).updateChildren(usuarioMap);
 
+        finish();
+        Toast.makeText(DataUsuario.this, "Cambios guardados con éxito", Toast.LENGTH_SHORT).show();
     }
 
 

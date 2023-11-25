@@ -7,9 +7,11 @@
     android:foreground="?android:attr/selectableItemBackground"
     app:cardBackgroundColor="#fff"
     app:cardUseCompatPadding="true"
-    android:padding="0.2dp"
-    android:layout_margin="10dp"
+    android:paddingRight="5dp"
+    android:layout_marginRight="8dp"
     android:layout_width="170dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
     android:layout_height="220dp">
 
 
