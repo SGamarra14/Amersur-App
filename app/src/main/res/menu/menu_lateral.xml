@@ -16,6 +16,10 @@
             android:title="Gestionar Cuenta"/>
 
         <item
+            android:id="@+id/MisSolicitudes"
+            android:title="Mis Solicitudes"/>
+
+        <item
             android:id="@+id/CerrarSesion"
             android:title="Cerrar Sesión"/>
 
