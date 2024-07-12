@@ -4,11 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginHorizontal="20dp"
     tools:context=".DataUsuario">
 
 
-    <!--<androidx.appcompat.widget.LinearLayoutCompat
+    <!----><androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -91,6 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:onClick="guardarDatos"
             android:fontFamily="@font/inter_medium"/>
 
         <Button
@@ -98,9 +98,9 @@
             android:layout_height="0dp"
             android:layout_marginTop="20dp"/>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>-->
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <TextView
+    <!--<TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Modificar datos personales"
@@ -191,5 +191,5 @@
         android:text="Guardar Datos"
         android:background="#A9B72C"
         android:textColor="@color/white"
-        android:onClick="guardarDatos" />
+        android:onClick="guardarDatos" />-->
 </LinearLayout>

@@ -32,8 +32,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:textSize="28sp"
-                android:textColor="#14252B"/>
+                android:textSize="35sp"
+                android:textColor="#14252B"
+                android:fontFamily="@font/inria_serif_bold"/>
 
             <TextView
                 android:id="@+id/det_desc_propiedad"
@@ -42,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:textColor="#6A6A6A"
-                android:textSize="14sp"/>
+                android:textSize="15sp"/>
 
             <TextView
                 android:text="Ubicación:"
@@ -129,8 +130,12 @@
                 android:background="#A9B72C"
                 android:text="SOLICITAR MÁS INFORMACIÓN"
                 android:textColor="#fff"
-                android:textSize="14sp"
-                tools:ignore="TextContrastCheck" />
+                android:textSize="14sp"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="20dp"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

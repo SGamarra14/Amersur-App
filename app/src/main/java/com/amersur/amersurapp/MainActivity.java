@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.amersur.amersurapp.fragments.GestionarCuenta;
 import com.amersur.amersurapp.fragments.Inicio;
+import com.amersur.amersurapp.fragments.ListSolicitudes;
 import com.amersur.amersurapp.fragments.RegistrarUsuario;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -71,6 +72,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.GestionarCuenta:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new GestionarCuenta()).commit();
+                break;
+
+            case R.id.MisSolicitudes:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new ListSolicitudes()).commit();
                 break;
                 
             case R.id.CerrarSesion:

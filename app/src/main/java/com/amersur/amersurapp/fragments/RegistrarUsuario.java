@@ -67,18 +67,21 @@ public class RegistrarUsuario extends Fragment {
                         apellido.equals("") || telefono.equals("")) {
                     Toast.makeText(getActivity(), "Por favor, llene todos los campos.", Toast.LENGTH_SHORT).show();
                 } else {
-                    if(!apellido.matches("^[A-Za-zÁ-Úá-úüÜñÑ\\s'-]+$")){
+                    if (!apellido.matches("^[A-Za-zÁ-Úá-úüÜñÑ\\s'-]+$")) {
                         Apellidos.setError("Formato incorrecto");
                         Apellidos.setFocusable(true);
-                    } else if(!nombre.matches("^[A-Za-zÁ-Úá-úüÜñÑ\\s'-]+$")){
+                    } else if (!nombre.matches("^[A-Za-zÁ-Úá-úüÜñÑ\\s'-]+$")) {
                         Nombres.setError("Formato incorrecto");
                         Nombres.setFocusable(true);
                     } else if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
                         Correo.setError("Dirección de correo inválida.");
                         Correo.setFocusable(true);
                     } else if (pass.length() < 6) {
-                        Password.setError("La contraseña tener 6 o más carácteres.");
-                        Correo.setFocusable(true);
+                        Password.setError("La contraseña debe tener 6 o más caracteres.");
+                        Password.setFocusable(true);
+                    } else if (!telefono.matches("^9\\d{8}$")) {
+                        Celular.setError("Número de teléfono inválido.");
+                        Celular.setFocusable(true);
                     } else {
                         RegistrarNuevoUsuario(correo, pass);
                     }
