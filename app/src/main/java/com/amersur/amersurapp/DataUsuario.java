@@ -3,6 +3,7 @@ package com.amersur.amersurapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DataUsuario extends AppCompatActivity {
-    private EditText nameEt,lastNameEt,emailEt,phoneEt;
+    private EditText nameEt, lastNameEt, emailEt, phoneEt;
     private Button btnGuardar;
 
     private DatabaseReference databaseReference;
@@ -51,11 +52,33 @@ public class DataUsuario extends AppCompatActivity {
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Guardar los cambios
-                guardarCambios();
+                String correo = emailEt.getText().toString();
+                String nombre = nameEt.getText().toString();
+                String apellido = lastNameEt.getText().toString();
+                String telefono = phoneEt.getText().toString();
+
+                if (correo.equals("") || nombre.equals("") ||
+                        apellido.equals("") || telefono.equals("")) {
+                    Toast.makeText(DataUsuario.this, "Por favor, llene todos los campos.", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (!apellido.matches("^[A-Za-zÁ-Úá-úüÜñÑ\\s'-]+$")) {
+                        lastNameEt.setError("Formato incorrecto");
+                        lastNameEt.setFocusable(true);
+                    } else if (!nombre.matches("^[A-Za-zÁ-Úá-úüÜñÑ\\s'-]+$")) {
+                        nameEt.setError("Formato incorrecto");
+                        nameEt.setFocusable(true);
+                    } else if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
+                        emailEt.setError("Dirección de correo inválida.");
+                        emailEt.setFocusable(true);
+                    } else if (!telefono.matches("^9\\d{8}$")) {
+                        phoneEt.setError("Número de teléfono inválido.");
+                        phoneEt.setFocusable(true);
+                    } else {
+                        guardarCambios();
+                    }
+                }
             }
         });
-
 
         // Habilita el botón de regresar en la barra de acción
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -75,14 +98,12 @@ public class DataUsuario extends AppCompatActivity {
         usuarioMap.put("CORREO", nuevoCorreo);
         usuarioMap.put("TELEFONO", nuevoTelefono);
 
-
         databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference.child("USUARIOS").child(user.getUID()).updateChildren(usuarioMap);
 
         finish();
         Toast.makeText(DataUsuario.this, "Cambios guardados con éxito", Toast.LENGTH_SHORT).show();
     }
-
 
     @Override
     public boolean onSupportNavigateUp() {
