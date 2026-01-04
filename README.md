@@ -10,6 +10,24 @@
 
 ---
 
+## 📸 Vista Previa
+<div align="center">
+  <table>
+    <tr>
+      <td align="center"><b>Login y Registro</b></td>
+      <td align="center"><b>Catálogo Inmobiliario</b></td>
+      <td align="center"><b>Detalle de Propiedad</b></td>
+    </tr>
+    <tr>
+      <td><img src="https://github.com/user-attachments/assets/36af2a26-428d-40b5-a9a5-5fe695b04241" width="200" /></td>
+      <td><img src="https://github.com/user-attachments/assets/4fd71b3d-e97c-433d-aa33-db38957f2cd3" width="200" /></td>
+      <td><img src="https://github.com/user-attachments/assets/e2cdb00f-487b-487d-93db-7689f81174ee" width="200" /></td>
+    </tr>
+  </table>
+</div>
+
+---
+
 ## 📝 Descripción
 **Amersur-App** es una herramienta desarrollada como proyecto integrador que optimiza la interacción entre la inmobiliaria y el cliente. Permite explorar un catálogo dinámico de propiedades, gestionar usuarios y asegurar que la información multimedia esté siempre disponible mediante servicios en la nube.
 
@@ -35,10 +53,3 @@ Si deseas probar la aplicación, puedes descargar directamente el archivo **APK*
   </a>
   <p><i>Nota: Es posible que debas habilitar la instalación desde fuentes desconocidas en tu dispositivo.</i></p>
 </div>
-
----
-
-## 👨‍💻 Autor
-**Sebastian Nicolas Gamarra Espinoza**
-* **LinkedIn:** [linkedin.com/in/sebastian-gamarra](https://www.linkedin.com/in/sebastian-gamarra)
-* **GitHub:** [@SGamarra14](https://github.com/SGamarra14)
